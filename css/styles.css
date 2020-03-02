@@ -1,0 +1,74 @@
+body, html, div, blockquote, img, label, p, h1, h2, h3, h4, h5, h6, pre, ul, ol,
+li, dl, dt, dd, form, a, fieldset, input, th, td
+{
+  margin: 0; padding: 0; border: 0; outline: none;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 10px;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+header h1 {
+  text-align: center;
+  margin: 2rem 0;
+  font-size: 5rem;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 6fr 1fr;
+}
+
+aside {
+  /* background-color: aquamarine; */
+  margin: 0 auto;
+}
+aside ul {
+  list-style-type: none;
+}
+
+aside ul li {
+  font-size: 2rem;
+  padding-bottom: 0.5rem;
+}
+
+section {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+section div {
+  width: 33.3%;
+  padding: 5px;
+}
+
+section img {
+  width: 100%;
+  height: auto;
+}
+
+@media screen and (max-width: 900px) {
+  section div {
+    width: 100%;
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  main {
+    display: block;
+  }
+
+  section div {
+    width: 100%;
+    padding: 0;
+  }
+}
+
+div.empty {
+
+}
