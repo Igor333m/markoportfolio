@@ -1,0 +1,22 @@
+{
+  "name": "marko-portfolio",
+  "version": "1.0.0",
+  "description": "Marko Stankovic Portfolio",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Igor333m/markoportfolio.git"
+  },
+  "author": "Igor Todorovic",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Igor333m/markoportfolio/issues"
+  },
+  "homepage": "https://github.com/Igor333m/markoportfolio#readme",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.12.1"
+  }
+}
