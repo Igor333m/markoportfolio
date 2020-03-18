@@ -57,11 +57,12 @@ main.works {
 }
 
 .works header i {
-  font-size: 2rem;
+  font-size: 2.5rem;
   padding: 3rem;
+  font-weight: bold;
 }
 
-.fa-chevron-left:hover, .fa-chevron-right:hover {
+#left:hover, #right:hover {
   cursor: pointer;
   color: grey;
 }
