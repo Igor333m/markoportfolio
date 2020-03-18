@@ -1,5 +1,3 @@
-
-
 const listOfProjects = {
   rpb: 4
 }

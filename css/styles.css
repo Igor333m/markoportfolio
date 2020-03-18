@@ -56,6 +56,11 @@ main.works {
   padding: 3rem;
 }
 
+.fa-chevron-left:hover, .fa-chevron-right:hover {
+  cursor: pointer;
+  color: grey;
+}
+
 .works header img {
   width: 80%;
 }
