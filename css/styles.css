@@ -100,6 +100,39 @@ section div {
   padding: 5px;
 }
 
+section div a {
+  display: block;
+  position: relative;
+}
+
+.project-hover {
+  position: absolute;
+  top: 28%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: rgba(0, 0, 0, 0.35);
+}
+
+section div a:hover .project-hover {
+  opacity: 1;
+}
+
+.text-over-image {
+  position: absolute;
+  top: 20px;
+  color: white;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  width: 100%;
+}
+
 section img {
   width: 100%;
   height: auto;
@@ -109,6 +142,16 @@ section img {
   section div {
     width: 100%;
     padding: 0;
+  }
+
+  .project-hover {
+    top: 35%;
+    height: 33%;
+  }
+
+  .text-over-image {
+    font-size: 2rem;
+    top: 40%;
   }
 }
 
@@ -137,5 +180,29 @@ section img {
   section div {
     width: 100%;
     padding: 0;
+  }
+}
+
+/* Wide screens */
+@media screen and (min-width: 1400px) {
+  .project-hover {
+    top: 33%;
+    height: 80px;
+  }
+
+  .text-over-image {
+    font-size: 1.5rem;
+    top: 33%;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .project-hover {
+    top: 36%;
+  }
+
+  .text-over-image {
+    font-size: 2rem;
+    top: 28%;
   }
 }
