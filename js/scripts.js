@@ -1,7 +1,16 @@
 const listOfProjects = {
   rpb: 4,
   icfis: 3,
-  dev1: 10
+  dev1: 10,
+  dev2: 6,
+  inco: 8,
+  classroom: 10,
+  documents: 6,
+  body1: 10,
+  body2: 8,
+  body11: 6,
+  body12: 6,
+  process: 5
 }
 
 let currentImage = 1;
