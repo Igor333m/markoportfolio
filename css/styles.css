@@ -156,6 +156,18 @@ section img {
 }
 
 @media screen and (max-width: 650px) {
+
+  main.works {
+    margin-top: 1rem;
+  }
+
+  .works header img {
+    width: 100%;
+  }
+  #left, #right {
+    display: none;
+  }
+
   header h1 {
     font-size: 5rem;
   }
@@ -163,6 +175,11 @@ section img {
   .mobile {
     display: block;
     text-align: center;
+  }
+
+  ul.mobile {
+    margin-left: 0;
+    margin-bottom: 1rem;
   }
 
   .mobile li {
@@ -175,6 +192,14 @@ section img {
 
   main {
     display: block;
+  }
+
+  .works section {
+    justify-content: center;
+  }
+
+  .works section h2, .works section p {
+    width: 90%;
   }
 
   section div {
