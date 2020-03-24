@@ -46,14 +46,6 @@ class ImageGallery {
     }
     this.setImageNumber(this.currentImage);
   }
-  
-  // leftArrow.onclick = () => {
-  //   minus();
-  // }
-  
-  // rightArrow.onclick = () => {
-  //   this.plus();
-  // }
 
   getImgNumberFromProject (projectName, listOfProjects) {
     if (listOfProjects[projectName]) {
@@ -81,6 +73,7 @@ function swipeImages () {
   console.info(screenWidth);
 
   const handleStart = (event) => {
+    event.stopPropagation();
     event.preventDefault();
     let touches = event.changedTouches;
     for (let i = 0; i < touches.length; i++) {
@@ -89,6 +82,7 @@ function swipeImages () {
     }
   }
   const handleEnd = (event) => {
+    event.stopPropagation(); 
     event.preventDefault();
     let touchesEnd = event.changedTouches;
         
