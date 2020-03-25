@@ -72,12 +72,6 @@ var ImageGallery = /*#__PURE__*/function () {
 
   _createClass(ImageGallery, [{
     key: "getImgNumberFromProject",
-    // leftArrow.onclick = () => {
-    //   minus();
-    // }
-    // rightArrow.onclick = () => {
-    //   this.plus();
-    // }
     value: function getImgNumberFromProject(projectName, listOfProjects) {
       if (listOfProjects[projectName]) {
         return listOfProjects[projectName];
@@ -109,8 +103,8 @@ function swipeImages() {
   console.info(screenWidth);
 
   var handleStart = function handleStart(event) {
-    event.stopPropagation();
-    event.preventDefault();
+    // event.stopPropagation();
+    // event.preventDefault();
     var touches = event.changedTouches;
 
     for (var i = 0; i < touches.length; i++) {
@@ -120,8 +114,8 @@ function swipeImages() {
   };
 
   var handleEnd = function handleEnd(event) {
-    event.stopPropagation();
-    event.preventDefault();
+    // event.stopPropagation(); 
+    // event.preventDefault();
     var touchesEnd = event.changedTouches;
 
     for (var i = 0; i < touchesEnd.length; i++) {

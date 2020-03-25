@@ -73,8 +73,8 @@ function swipeImages () {
   console.info(screenWidth);
 
   const handleStart = (event) => {
-    event.stopPropagation();
-    event.preventDefault();
+    // event.stopPropagation();
+    // event.preventDefault();
     let touches = event.changedTouches;
     for (let i = 0; i < touches.length; i++) {
       console.log("handleStart - event.touches[i].pageX: ", touches[i].pageX);
@@ -82,8 +82,8 @@ function swipeImages () {
     }
   }
   const handleEnd = (event) => {
-    event.stopPropagation(); 
-    event.preventDefault();
+    // event.stopPropagation(); 
+    // event.preventDefault();
     let touchesEnd = event.changedTouches;
         
     for (let i = 0; i < touchesEnd.length; i++) {
