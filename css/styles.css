@@ -82,7 +82,7 @@ aside {
 }
 aside ul {
   list-style-type: none;
-  margin-left: 8rem;
+  margin-left: 12rem;
 }
 
 aside ul li {
@@ -97,15 +97,17 @@ section {
 
 section div {
   width: 33.3%;
-  padding: 5px;
+  padding: 4px;
 }
 
 section div a {
   display: block;
   position: relative;
+  line-height: 0;
 }
 
 .project-hover {
+  line-height: normal;
   position: absolute;
   top: 28%;
   bottom: 0;
