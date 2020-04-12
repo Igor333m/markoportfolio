@@ -20,6 +20,9 @@ a, a:hover, a:visited {
 body {
   font-family: 'Nunito Sans', sans-serif;
 }
+ul {
+  list-style-type: none;
+}
 
 .font-light {
   font-weight: 300;
@@ -77,11 +80,9 @@ main.works {
 }
 
 aside {
-  /* background-color: aquamarine; */
   margin: 0 auto;
 }
 aside ul {
-  list-style-type: none;
   margin-left: 12rem;
 }
 
@@ -140,6 +141,24 @@ section img {
   height: auto;
 }
 
+section.bio {
+  display: block;
+  margin: 0 1rem 1rem 1rem;
+}
+
+section.bio ul.line {
+  padding-left: 0.5rem;
+  list-style-type: '-';
+}
+section.bio ul.line li {
+  padding-left: 0.3rem;
+}
+
+section.bio h3 {
+  margin-top: 2rem;
+}
+
+/* Media queries */
 @media screen and (max-width: 900px) {
   section div {
     width: 100%;
