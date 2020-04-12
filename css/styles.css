@@ -20,6 +20,7 @@ a, a:hover, a:visited {
 body {
   font-family: 'Nunito Sans', sans-serif;
 }
+
 ul {
   list-style-type: none;
 }
@@ -232,19 +233,8 @@ section.bio h3 {
 /* Wide screens */
 @media screen and (min-width: 1400px) {
   .project-hover {
-    top: 33%;
-    height: 80px;
-  }
-
-  .text-over-image {
-    font-size: 1.5rem;
-    top: 33%;
-  }
-}
-
-@media screen and (min-width: 1400px) {
-  .project-hover {
     top: 36%;
+    height: 80px;
   }
 
   .text-over-image {
