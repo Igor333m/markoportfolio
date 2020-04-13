@@ -85,7 +85,7 @@ main.works {
 }
 
  .works header #visible.visible {
-  transition: opacity 0.2s ease-out;
+  /* transition: opacity 0.2s ease-out; */
   opacity: 0;
   
 }
