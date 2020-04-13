@@ -1,19 +1,7 @@
-"use strict";
-
-function _instanceof(left, right) { if (right != null && typeof Symbol !== "undefined" && right[Symbol.hasInstance]) { return !!right[Symbol.hasInstance](left); } else { return left instanceof right; } }
-
-function _classCallCheck(instance, Constructor) { if (!_instanceof(instance, Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 /**
  * @desc - All projects with number of detail images for every project
  */
-var listOfProjects = {
+const listOfProjects = {
   rpb: 4,
   icfis: 3,
   dev1: 10,
@@ -26,135 +14,129 @@ var listOfProjects = {
   body11: 6,
   body12: 6,
   process: 5
-};
-var project = document.getElementById('project');
-var visible = document.getElementById('visible');
+}
 
-var ImageGallery = /*#__PURE__*/function () {
-  function ImageGallery() {
-    var _this = this;
+const project = document.getElementById('project');
+const visible = document.getElementById('visible');
 
-    _classCallCheck(this, ImageGallery);
+class ImageGallery {
+  currentImage = 1;
+  projectName = project.className;
+  totalImages = this.getImgNumberFromProject (this.projectName, listOfProjects);
+  leftArrow = document.getElementById('left').onclick = () => {
+    this.minus();
+  };
+  rightArrow = document.getElementById('right').onclick = () => {
+    this.plus();
+  };
 
-    _defineProperty(this, "currentImage", 1);
-
-    _defineProperty(this, "projectName", project.className);
-
-    _defineProperty(this, "totalImages", this.getImgNumberFromProject(this.projectName, listOfProjects));
-
-    _defineProperty(this, "leftArrow", document.getElementById('left').onclick = function () {
-      _this.minus();
-    });
-
-    _defineProperty(this, "rightArrow", document.getElementById('right').onclick = function () {
-      _this.plus();
-    });
-
-    _defineProperty(this, "plus", function () {
-      _this.addVisibleClass();
-
-      setTimeout(function () {
-        if (_this.currentImage < _this.totalImages) {
-          _this.currentImage++;
-        } else {
-          _this.currentImage = 1;
-        }
-
-        _this.setImageNumber(_this.currentImage);
-
-        _this.removeVisibleClass();
-      }, 300);
-    });
-
-    _defineProperty(this, "minus", function () {
-      _this.addVisibleClass();
-
-      setTimeout(function () {
-        if (_this.currentImage !== 1) {
-          _this.currentImage--;
-        } else {
-          _this.currentImage = _this.totalImages;
-        }
-
-        _this.setImageNumber(_this.currentImage);
-
-        _this.removeVisibleClass();
-      }, 300);
-    });
-
-    _defineProperty(this, "addVisibleClass", function () {
-      visible.setAttribute('class', 'visible');
-      console.log('addVisibleClass'); // setTimeout(() => {
-      // }, 0);
-    });
-
-    _defineProperty(this, "removeVisibleClass", function () {
-      visible.removeAttribute('class', 'visible');
-      console.log('removeVisibleClass'); // setTimeout(() => {
-      // }, 300);
-    });
+  plus = () => {
+    this.addVisibleClass();
+    setTimeout(() => {
+      if ( this.currentImage < this.totalImages ) {
+        this.currentImage++;
+      } else {
+        this.currentImage = 1;
+      }
+      this.setImageNumber(this.currentImage);
+      this.removeVisibleClass();
+    }, 400);
+  }
+  
+  minus = () => {
+    this.addVisibleClass();
+    setTimeout(() => {
+      if ( this.currentImage !== 1 ) {
+        this.currentImage--;
+      } else {
+        this.currentImage = this.totalImages;
+      }
+      this.setImageNumber(this.currentImage);
+      this.removeVisibleClass();
+    }, 400);
   }
 
-  _createClass(ImageGallery, [{
-    key: "getImgNumberFromProject",
-    value: function getImgNumberFromProject(projectName, listOfProjects) {
-      if (listOfProjects[projectName]) {
-        return listOfProjects[projectName];
-      }
+  // toggleVisibleClass = () => {
+  //   let toggleVisible = visible.hasAttribute('visible')
+  //   console.log('toggleVisible: ', toggleVisible);
+  //   if (toggleVisible) {
+  //     setTimeout(() => {
+  //       visible.setAttribute('class', 'visible');
+  //       console.log("setAttribute('class', 'visible')");
+  //     }, 300);
+  //   } else {
+  //     setTimeout(() => {
+  //       visible.removeAttribute('class', 'visible');
+  //       console.log("removeAttribute('class', 'visible')");
+  //       console.log('addVisibleClass');
+  //     }, 300);
+  //   }
+  // }
+  addVisibleClass = () => {
+    visible.setAttribute('class', 'visible');
+    console.log('addVisibleClass');
+    // setTimeout(() => {
+
+    // }, 0);
+  }
+
+  removeVisibleClass = () => {
+    visible.removeAttribute('class', 'visible');
+    console.log('removeVisibleClass');
+    // setTimeout(() => {
+
+    // }, 300);
+  }
+
+  getImgNumberFromProject (projectName, listOfProjects) {
+    if (listOfProjects[projectName]) {
+      return listOfProjects[projectName];
     }
-    /**
-     * @param {number} num - The current image number
-     * @return {string} The new image url
-     */
+  }
+  
+  /**
+   * @param {number} num - The current image number
+   * @return {string} The new image url
+   */
+  setImageNumber (num) {
+    // Get image number
+    let regex = /\d+(.jpg)/g;
+    return project.setAttribute('src', project.src.replace(regex, `${num}.jpg`));
+  }
+}
 
-  }, {
-    key: "setImageNumber",
-    value: function setImageNumber(num) {
-      // Get image number
-      var regex = /\d+(.jpg)/g;
-      return project.setAttribute('src', project.src.replace(regex, "".concat(num, ".jpg")));
-    }
-  }]);
+let imageGallery = new ImageGallery();
 
-  return ImageGallery;
-}();
-
-var imageGallery = new ImageGallery();
-
-function swipeImages() {
-  var screenWidth = window.screen.width;
-  var pageStart = 0;
-  var pageEnd = 0;
+function swipeImages () {
+  const screenWidth = window.screen.width;
+  let pageStart = 0;
+  let pageEnd = 0;
   console.info(screenWidth);
 
-  var handleStart = function handleStart(event) {
+  const handleStart = (event) => {
     // event.stopPropagation();
     // event.preventDefault();
-    var touches = event.changedTouches;
-
-    for (var i = 0; i < touches.length; i++) {
+    let touches = event.changedTouches;
+    for (let i = 0; i < touches.length; i++) {
       pageStart = touches[i].pageX;
     }
-  };
-
-  var handleEnd = function handleEnd(event) {
+  }
+  const handleEnd = (event) => {
     // event.stopPropagation(); 
     // event.preventDefault();
-    var touchesEnd = event.changedTouches;
-
-    for (var i = 0; i < touchesEnd.length; i++) {
+    let touchesEnd = event.changedTouches;
+        
+    for (let i = 0; i < touchesEnd.length; i++) {
       pageEnd = touchesEnd[i].pageX;
     }
-
     swipe(pageStart, pageEnd);
-  };
+  }
 
-  function swipe(startX, endX) {
+  function swipe (startX, endX) {
     if (startX - endX < 0 && Math.abs(startX - endX) > screenWidth / 8) {
       console.log("Plus");
       imageGallery.plus();
     }
-
     if (startX - endX > 0 && Math.abs(startX - endX) > screenWidth / 8) {
       console.log("Minus");
       imageGallery.minus();
