@@ -81,11 +81,11 @@ main.works {
 
 .works header #visible {
   opacity: 1;
-  transition: opacity 0.3s ease-in;
+  transition: opacity 0.2s ease-in;
 }
 
  .works header #visible.visible {
-  transition: opacity 0.3s ease-out;
+  transition: opacity 0.2s ease-out;
   opacity: 0;
   
 }
