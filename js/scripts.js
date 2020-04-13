@@ -40,7 +40,7 @@ class ImageGallery {
       }
       this.setImageNumber(this.currentImage);
       this.removeVisibleClass();
-    }, 300);
+    }, 400);
   }
   
   minus = () => {
@@ -53,7 +53,7 @@ class ImageGallery {
       }
       this.setImageNumber(this.currentImage);
       this.removeVisibleClass();
-    }, 300);
+    }, 400);
   }
 
   // toggleVisibleClass = () => {
