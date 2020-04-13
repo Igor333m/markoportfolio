@@ -53,7 +53,7 @@ class ImageGallery {
       }
       this.setImageNumber(this.currentImage);
       this.removeVisibleClass();
-    }, 200);
+    }, 400);
   }
 
   // toggleVisibleClass = () => {
