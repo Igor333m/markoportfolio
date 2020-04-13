@@ -17,6 +17,7 @@ const listOfProjects = {
 }
 
 const project = document.getElementById('project');
+const visible = document.getElementById('visible');
 
 class ImageGallery {
   currentImage = 1;
@@ -30,21 +31,61 @@ class ImageGallery {
   };
 
   plus = () => {
-    if ( this.currentImage < this.totalImages ) {
-      this.currentImage++;
-    } else {
-      this.currentImage = 1;
-    }
-    this.setImageNumber(this.currentImage);
+    this.addVisibleClass();
+    setTimeout(() => {
+      if ( this.currentImage < this.totalImages ) {
+        this.currentImage++;
+      } else {
+        this.currentImage = 1;
+      }
+      this.setImageNumber(this.currentImage);
+      this.removeVisibleClass();
+    }, 300);
   }
   
   minus = () => {
-    if ( this.currentImage !== 1 ) {
-      this.currentImage--;
-    } else {
-      this.currentImage = this.totalImages;
-    }
-    this.setImageNumber(this.currentImage);
+    this.addVisibleClass();
+    setTimeout(() => {
+      if ( this.currentImage !== 1 ) {
+        this.currentImage--;
+      } else {
+        this.currentImage = this.totalImages;
+      }
+      this.setImageNumber(this.currentImage);
+      this.removeVisibleClass();
+    }, 300);
+  }
+
+  // toggleVisibleClass = () => {
+  //   let toggleVisible = visible.hasAttribute('visible')
+  //   console.log('toggleVisible: ', toggleVisible);
+  //   if (toggleVisible) {
+  //     setTimeout(() => {
+  //       visible.setAttribute('class', 'visible');
+  //       console.log("setAttribute('class', 'visible')");
+  //     }, 300);
+  //   } else {
+  //     setTimeout(() => {
+  //       visible.removeAttribute('class', 'visible');
+  //       console.log("removeAttribute('class', 'visible')");
+  //       console.log('addVisibleClass');
+  //     }, 300);
+  //   }
+  // }
+  addVisibleClass = () => {
+    visible.setAttribute('class', 'visible');
+    console.log('addVisibleClass');
+    // setTimeout(() => {
+
+    // }, 0);
+  }
+
+  removeVisibleClass = () => {
+    visible.removeAttribute('class', 'visible');
+    console.log('removeVisibleClass');
+    // setTimeout(() => {
+
+    // }, 300);
   }
 
   getImgNumberFromProject (projectName, listOfProjects) {
@@ -77,7 +118,6 @@ function swipeImages () {
     // event.preventDefault();
     let touches = event.changedTouches;
     for (let i = 0; i < touches.length; i++) {
-      console.log("handleStart - event.touches[i].pageX: ", touches[i].pageX);
       pageStart = touches[i].pageX;
     }
   }
@@ -87,18 +127,17 @@ function swipeImages () {
     let touchesEnd = event.changedTouches;
         
     for (let i = 0; i < touchesEnd.length; i++) {
-      console.log("handleEnd - event.touchesEnd[i].pageX: ", touchesEnd[i].pageX);
       pageEnd = touchesEnd[i].pageX;
     }
     swipe(pageStart, pageEnd);
   }
 
   function swipe (startX, endX) {
-    if (startX - endX < 0 && Math.abs(startX - endX) > screenWidth / 3) {
+    if (startX - endX < 0 && Math.abs(startX - endX) > screenWidth / 8) {
       console.log("Plus");
       imageGallery.plus();
     }
-    if (startX - endX > 0 && Math.abs(startX - endX) > screenWidth / 3) {
+    if (startX - endX > 0 && Math.abs(startX - endX) > screenWidth / 8) {
       console.log("Minus");
       imageGallery.minus();
     }

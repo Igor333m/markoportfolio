@@ -28,6 +28,7 @@ var listOfProjects = {
   process: 5
 };
 var project = document.getElementById('project');
+var visible = document.getElementById('visible');
 
 var ImageGallery = /*#__PURE__*/function () {
   function ImageGallery() {
@@ -50,23 +51,47 @@ var ImageGallery = /*#__PURE__*/function () {
     });
 
     _defineProperty(this, "plus", function () {
-      if (_this.currentImage < _this.totalImages) {
-        _this.currentImage++;
-      } else {
-        _this.currentImage = 1;
-      }
+      _this.addVisibleClass();
 
-      _this.setImageNumber(_this.currentImage);
+      setTimeout(function () {
+        if (_this.currentImage < _this.totalImages) {
+          _this.currentImage++;
+        } else {
+          _this.currentImage = 1;
+        }
+
+        _this.setImageNumber(_this.currentImage);
+
+        _this.removeVisibleClass();
+      }, 300);
     });
 
     _defineProperty(this, "minus", function () {
-      if (_this.currentImage !== 1) {
-        _this.currentImage--;
-      } else {
-        _this.currentImage = _this.totalImages;
-      }
+      _this.addVisibleClass();
 
-      _this.setImageNumber(_this.currentImage);
+      setTimeout(function () {
+        if (_this.currentImage !== 1) {
+          _this.currentImage--;
+        } else {
+          _this.currentImage = _this.totalImages;
+        }
+
+        _this.setImageNumber(_this.currentImage);
+
+        _this.removeVisibleClass();
+      }, 300);
+    });
+
+    _defineProperty(this, "addVisibleClass", function () {
+      visible.setAttribute('class', 'visible');
+      console.log('addVisibleClass'); // setTimeout(() => {
+      // }, 0);
+    });
+
+    _defineProperty(this, "removeVisibleClass", function () {
+      visible.removeAttribute('class', 'visible');
+      console.log('removeVisibleClass'); // setTimeout(() => {
+      // }, 300);
     });
   }
 
@@ -108,7 +133,6 @@ function swipeImages() {
     var touches = event.changedTouches;
 
     for (var i = 0; i < touches.length; i++) {
-      console.log("handleStart - event.touches[i].pageX: ", touches[i].pageX);
       pageStart = touches[i].pageX;
     }
   };
@@ -119,7 +143,6 @@ function swipeImages() {
     var touchesEnd = event.changedTouches;
 
     for (var i = 0; i < touchesEnd.length; i++) {
-      console.log("handleEnd - event.touchesEnd[i].pageX: ", touchesEnd[i].pageX);
       pageEnd = touchesEnd[i].pageX;
     }
 
@@ -127,12 +150,12 @@ function swipeImages() {
   };
 
   function swipe(startX, endX) {
-    if (startX - endX < 0 && Math.abs(startX - endX) > screenWidth / 3) {
+    if (startX - endX < 0 && Math.abs(startX - endX) > screenWidth / 8) {
       console.log("Plus");
       imageGallery.plus();
     }
 
-    if (startX - endX > 0 && Math.abs(startX - endX) > screenWidth / 3) {
+    if (startX - endX > 0 && Math.abs(startX - endX) > screenWidth / 8) {
       console.log("Minus");
       imageGallery.minus();
     }

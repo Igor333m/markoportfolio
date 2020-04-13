@@ -66,13 +66,28 @@ main.works {
   font-weight: bold;
 }
 
+#left {
+  padding-left: 0;
+}
+
+#right {
+  padding-right: 0;
+}
+
 #left:hover, #right:hover {
   cursor: pointer;
   color: grey;
 }
 
-.works header img {
-  width: 80%;
+.works header #visible {
+  opacity: 1;
+  transition: opacity 0.3s ease-in;
+}
+
+ .works header #visible.visible {
+  transition: opacity 0.3s ease-out;
+  opacity: 0;
+  
 }
 
 .works section > p {
@@ -97,12 +112,12 @@ section {
   flex-wrap: wrap;
 }
 
-section div {
+section .project {
   width: 33.3%;
-  padding: 4px;
+  padding: 3px;
 }
 
-section div a {
+section .project a {
   display: block;
   position: relative;
   line-height: 0;
@@ -122,7 +137,7 @@ section div a {
   background-color: rgba(0, 0, 0, 0.35);
 }
 
-section div a:hover .project-hover {
+section .project a:hover .project-hover {
   opacity: 1;
 }
 
@@ -155,13 +170,16 @@ section.bio ul.line li {
   padding-left: 0.3rem;
 }
 
-section.bio h3 {
+section.bio h2 {
   margin-top: 2rem;
+}
+section.bio p, section.bio li {
+  font-size: 1.5rem;
 }
 
 /* Media queries */
 @media screen and (max-width: 900px) {
-  section div {
+  section .project {
     width: 100%;
     padding: 0;
   }
@@ -224,7 +242,7 @@ section.bio h3 {
     width: 90%;
   }
 
-  section div {
+  section .project {
     width: 100%;
     padding: 0;
   }
