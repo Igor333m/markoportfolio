@@ -76,6 +76,7 @@ main.works {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
 }
 
 .works header i {
@@ -95,17 +96,6 @@ main.works {
 #left:hover, #right:hover {
   cursor: pointer;
   color: grey;
-}
-
-.works header #visible {
-  opacity: 1;
-  transition: opacity 0.2s ease-in;
-}
-
- .works header #visible.visible {
-  transition: opacity 0.4s ease-out;
-  opacity: 0;
-  
 }
 
 .works section > p {
@@ -268,6 +258,16 @@ section.bio p, section.bio li {
     width: 100%;
     padding: 0;
     margin-bottom: 3px;
+  }
+
+  .works header #visible {
+    opacity: 1;
+    transition: opacity 0.2s ease-in;
+  }
+  
+   .works header #visible.visible {
+    transition: opacity 0.2s ease-out;
+    opacity: 0;
   }
 }
 

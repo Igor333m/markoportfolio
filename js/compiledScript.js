@@ -53,6 +53,7 @@ var ImageGallery = /*#__PURE__*/function () {
     });
 
     _defineProperty(this, "img", function () {
+      // Prevent onclick image modal for smaller screens
       if (screenWidth > 650) {
         project.onclick = function () {
           modal.hidden = false;
@@ -61,6 +62,7 @@ var ImageGallery = /*#__PURE__*/function () {
     });
 
     _defineProperty(this, "modal", function () {
+      // Prevent onclick image modal for smaller screens
       if (screenWidth > 650) {
         modal.onclick = function () {
           modal.hidden = true;
@@ -81,7 +83,7 @@ var ImageGallery = /*#__PURE__*/function () {
         _this.setImageNumber(_this.currentImage);
 
         _this.removeVisibleClass();
-      }, 400);
+      }, 200);
     });
 
     _defineProperty(this, "minus", function () {
@@ -97,7 +99,7 @@ var ImageGallery = /*#__PURE__*/function () {
         _this.setImageNumber(_this.currentImage);
 
         _this.removeVisibleClass();
-      }, 400);
+      }, 200);
     });
 
     _defineProperty(this, "addVisibleClass", function () {

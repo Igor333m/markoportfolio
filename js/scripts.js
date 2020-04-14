@@ -34,7 +34,11 @@ class ImageGallery {
     this.plus();
   };
 
+  /**
+   * @desc - Shows the image modal
+   */
   img = () => {
+    // Prevent onclick image modal for smaller screens
     if (screenWidth > 650 ) {
       project.onclick = () => {
         modal.hidden = false;
@@ -42,7 +46,11 @@ class ImageGallery {
     }
   }
 
+    /**
+   * @desc - Hides the image modal
+   */
   modal = () => {
+    // Prevent onclick image modal for smaller screens
     if (screenWidth > 650 ) {
       modal.onclick = () => {
         modal.hidden = true;
@@ -60,7 +68,7 @@ class ImageGallery {
       }
       this.setImageNumber(this.currentImage);
       this.removeVisibleClass();
-    }, 400);
+    }, 200);
   }
   
   minus = () => {
@@ -73,7 +81,7 @@ class ImageGallery {
       }
       this.setImageNumber(this.currentImage);
       this.removeVisibleClass();
-    }, 400);
+    }, 200);
   }
 
   addVisibleClass = () => {
