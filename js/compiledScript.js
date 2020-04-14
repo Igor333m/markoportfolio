@@ -27,6 +27,7 @@ var listOfProjects = {
   body12: 6,
   process: 5
 };
+var screenWidth = window.screen.width;
 var project = document.getElementById('project');
 var visible = document.getElementById('visible');
 var modal = document.getElementById('modal');
@@ -51,12 +52,20 @@ var ImageGallery = /*#__PURE__*/function () {
       _this.plus();
     });
 
-    _defineProperty(this, "img", project.onclick = function () {
-      modal.hidden = false;
+    _defineProperty(this, "img", function () {
+      if (screenWidth > 650) {
+        project.onclick = function () {
+          modal.hidden = false;
+        };
+      }
     });
 
-    _defineProperty(this, "modal", modal.onclick = function () {
-      modal.hidden = true;
+    _defineProperty(this, "modal", function () {
+      if (screenWidth > 650) {
+        modal.onclick = function () {
+          modal.hidden = true;
+        };
+      }
     });
 
     _defineProperty(this, "plus", function () {
@@ -126,9 +135,10 @@ var ImageGallery = /*#__PURE__*/function () {
 }();
 
 var imageGallery = new ImageGallery();
+imageGallery.modal();
+imageGallery.img();
 
 function swipeImages() {
-  var screenWidth = window.screen.width;
   var pageStart = 0;
   var pageEnd = 0;
   console.info(screenWidth);

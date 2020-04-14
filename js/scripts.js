@@ -16,6 +16,7 @@ const listOfProjects = {
   process: 5
 }
 
+const screenWidth = window.screen.width;
 const project = document.getElementById('project');
 const visible = document.getElementById('visible');
 const modal = document.getElementById('modal');
@@ -33,12 +34,20 @@ class ImageGallery {
     this.plus();
   };
 
-  img = project.onclick = () => {
-    modal.hidden = false;
-  };
+  img = () => {
+    if (screenWidth > 650 ) {
+      project.onclick = () => {
+        modal.hidden = false;
+      };
+    }
+  }
 
-  modal = modal.onclick = () => {
-    modal.hidden = true;
+  modal = () => {
+    if (screenWidth > 650 ) {
+      modal.onclick = () => {
+        modal.hidden = true;
+      }
+    }
   }
 
   plus = () => {
@@ -94,9 +103,10 @@ class ImageGallery {
 }
 
 let imageGallery = new ImageGallery();
+imageGallery.modal();
+imageGallery.img();
 
 function swipeImages () {
-  const screenWidth = window.screen.width;
   let pageStart = 0;
   let pageEnd = 0;
   console.info(screenWidth);
