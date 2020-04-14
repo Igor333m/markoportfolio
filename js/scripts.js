@@ -60,28 +60,30 @@ class ImageGallery {
 
   plus = () => {
     this.addVisibleClass();
-    project.addEventListener('load', this.removeVisibleClass());
+    
     setTimeout(() => {
       if ( this.currentImage < this.totalImages ) {
         this.currentImage++;
       } else {
         this.currentImage = 1;
       }
+      project.addEventListener('load', this.removeVisibleClass());
       this.setImageNumber(this.currentImage);
-    }, 200);
+    }, 1000);
   }
   
   minus = () => {
     this.addVisibleClass();
-    project.addEventListener('load', this.removeVisibleClass());
+    
     setTimeout(() => {
       if ( this.currentImage !== 1 ) {
         this.currentImage--;
       } else {
         this.currentImage = this.totalImages;
       }
+      project.addEventListener('load', this.removeVisibleClass());
       this.setImageNumber(this.currentImage);
-    }, 200);
+    }, 50);
   }
 
   addVisibleClass = () => {
@@ -89,6 +91,7 @@ class ImageGallery {
   }
 
   removeVisibleClass = () => {
+    console.log("removeVisibleClass: 2sec");
     visible.removeAttribute('class', 'visible');
   }
 
