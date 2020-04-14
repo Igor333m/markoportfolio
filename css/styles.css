@@ -266,8 +266,8 @@ section.bio p, section.bio li {
   }
   
    .works header #visible.visible {
-    transition: opacity 0.2s ease-out;
     opacity: 0;
+    transition: opacity 0.2s ease-out;
   }
 }
 
