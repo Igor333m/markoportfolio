@@ -29,6 +29,7 @@ var listOfProjects = {
 };
 var project = document.getElementById('project');
 var visible = document.getElementById('visible');
+var modal = document.getElementById('modal');
 
 var ImageGallery = /*#__PURE__*/function () {
   function ImageGallery() {
@@ -48,6 +49,14 @@ var ImageGallery = /*#__PURE__*/function () {
 
     _defineProperty(this, "rightArrow", document.getElementById('right').onclick = function () {
       _this.plus();
+    });
+
+    _defineProperty(this, "img", project.onclick = function () {
+      modal.hidden = false;
+    });
+
+    _defineProperty(this, "modal", modal.onclick = function () {
+      modal.hidden = true;
     });
 
     _defineProperty(this, "plus", function () {
@@ -84,14 +93,10 @@ var ImageGallery = /*#__PURE__*/function () {
 
     _defineProperty(this, "addVisibleClass", function () {
       visible.setAttribute('class', 'visible');
-      console.log('addVisibleClass'); // setTimeout(() => {
-      // }, 0);
     });
 
     _defineProperty(this, "removeVisibleClass", function () {
       visible.removeAttribute('class', 'visible');
-      console.log('removeVisibleClass'); // setTimeout(() => {
-      // }, 300);
     });
   }
 
@@ -112,7 +117,8 @@ var ImageGallery = /*#__PURE__*/function () {
     value: function setImageNumber(num) {
       // Get image number
       var regex = /\d+(.jpg)/g;
-      return project.setAttribute('src', project.src.replace(regex, "".concat(num, ".jpg")));
+      project.setAttribute('src', project.src.replace(regex, "".concat(num, ".jpg")));
+      modalImage.setAttribute('src', project.src.replace(regex, "".concat(num, ".jpg")));
     }
   }]);
 
@@ -128,8 +134,6 @@ function swipeImages() {
   console.info(screenWidth);
 
   var handleStart = function handleStart(event) {
-    // event.stopPropagation();
-    // event.preventDefault();
     var touches = event.changedTouches;
 
     for (var i = 0; i < touches.length; i++) {
@@ -138,8 +142,6 @@ function swipeImages() {
   };
 
   var handleEnd = function handleEnd(event) {
-    // event.stopPropagation(); 
-    // event.preventDefault();
     var touchesEnd = event.changedTouches;
 
     for (var i = 0; i < touchesEnd.length; i++) {

@@ -18,17 +18,28 @@ const listOfProjects = {
 
 const project = document.getElementById('project');
 const visible = document.getElementById('visible');
+const modal = document.getElementById('modal');
 
 class ImageGallery {
   currentImage = 1;
   projectName = project.className;
   totalImages = this.getImgNumberFromProject (this.projectName, listOfProjects);
+
   leftArrow = document.getElementById('left').onclick = () => {
     this.minus();
   };
+
   rightArrow = document.getElementById('right').onclick = () => {
     this.plus();
   };
+
+  img = project.onclick = () => {
+    modal.hidden = false;
+  };
+
+  modal = modal.onclick = () => {
+    modal.hidden = true;
+  }
 
   plus = () => {
     this.addVisibleClass();
@@ -56,36 +67,12 @@ class ImageGallery {
     }, 400);
   }
 
-  // toggleVisibleClass = () => {
-  //   let toggleVisible = visible.hasAttribute('visible')
-  //   console.log('toggleVisible: ', toggleVisible);
-  //   if (toggleVisible) {
-  //     setTimeout(() => {
-  //       visible.setAttribute('class', 'visible');
-  //       console.log("setAttribute('class', 'visible')");
-  //     }, 300);
-  //   } else {
-  //     setTimeout(() => {
-  //       visible.removeAttribute('class', 'visible');
-  //       console.log("removeAttribute('class', 'visible')");
-  //       console.log('addVisibleClass');
-  //     }, 300);
-  //   }
-  // }
   addVisibleClass = () => {
     visible.setAttribute('class', 'visible');
-    console.log('addVisibleClass');
-    // setTimeout(() => {
-
-    // }, 0);
   }
 
   removeVisibleClass = () => {
     visible.removeAttribute('class', 'visible');
-    console.log('removeVisibleClass');
-    // setTimeout(() => {
-
-    // }, 300);
   }
 
   getImgNumberFromProject (projectName, listOfProjects) {
@@ -101,7 +88,8 @@ class ImageGallery {
   setImageNumber (num) {
     // Get image number
     let regex = /\d+(.jpg)/g;
-    return project.setAttribute('src', project.src.replace(regex, `${num}.jpg`));
+    project.setAttribute('src', project.src.replace(regex, `${num}.jpg`));
+    modalImage.setAttribute('src', project.src.replace(regex, `${num}.jpg`));
   }
 }
 
@@ -114,16 +102,12 @@ function swipeImages () {
   console.info(screenWidth);
 
   const handleStart = (event) => {
-    // event.stopPropagation();
-    // event.preventDefault();
     let touches = event.changedTouches;
     for (let i = 0; i < touches.length; i++) {
       pageStart = touches[i].pageX;
     }
   }
   const handleEnd = (event) => {
-    // event.stopPropagation(); 
-    // event.preventDefault();
     let touchesEnd = event.changedTouches;
         
     for (let i = 0; i < touchesEnd.length; i++) {
