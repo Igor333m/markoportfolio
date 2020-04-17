@@ -84,8 +84,8 @@ var ImageGallery = /*#__PURE__*/function () {
 
         project.addEventListener('load', setTimeout(function () {
           _this.removeVisibleClass();
-        }, 200));
-      }, 200);
+        }, 100));
+      }, 100);
     });
 
     _defineProperty(this, "minus", function () {
@@ -100,8 +100,10 @@ var ImageGallery = /*#__PURE__*/function () {
 
         _this.setImageNumber(_this.currentImage);
 
-        project.addEventListener('load', _this.removeVisibleClass());
-      }, 200);
+        project.addEventListener('load', setTimeout(function () {
+          _this.removeVisibleClass();
+        }, 100));
+      }, 100);
     });
 
     _defineProperty(this, "addVisibleClass", function () {
