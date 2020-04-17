@@ -83,7 +83,7 @@ var ImageGallery = /*#__PURE__*/function () {
         _this.setImageNumber(_this.currentImage);
 
         _this.removeVisibleClass();
-      }, 400);
+      }, 200);
     });
 
     _defineProperty(this, "minus", function () {
@@ -99,7 +99,7 @@ var ImageGallery = /*#__PURE__*/function () {
         _this.setImageNumber(_this.currentImage);
 
         project.addEventListener('load', _this.removeVisibleClass());
-      }, 400);
+      }, 200);
     });
 
     _defineProperty(this, "addVisibleClass", function () {
