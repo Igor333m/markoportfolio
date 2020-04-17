@@ -262,12 +262,12 @@ section.bio p, section.bio li {
 
   .works header #visible {
     opacity: 1;
-    transition: opacity 0.2s ease-in;
+    transition: opacity 0.4s ease-in;
   }
   
    .works header #visible.visible {
     opacity: 0;
-    transition: opacity 0.2s ease-out;
+    transition: opacity 0.4s ease-out;
   }
 }
 
