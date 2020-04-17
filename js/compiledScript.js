@@ -82,9 +82,9 @@ var ImageGallery = /*#__PURE__*/function () {
 
         _this.setImageNumber(_this.currentImage);
 
-        setTimeout(function () {
-          project.addEventListener('load', _this.removeVisibleClass());
-        }, 200);
+        project.addEventListener('load', setTimeout(function () {
+          _this.removeVisibleClass();
+        }, 200));
       }, 200);
     });
 
