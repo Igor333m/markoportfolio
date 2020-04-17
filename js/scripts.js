@@ -67,7 +67,9 @@ class ImageGallery {
         this.currentImage = 1;
       }
       this.setImageNumber(this.currentImage);
-      this.removeVisibleClass()
+      setTimeout(() => {
+        this.removeVisibleClass()
+      }, 200);
     }, 200);
   }
   
@@ -85,6 +87,7 @@ class ImageGallery {
   }
 
   addVisibleClass = () => {
+    console.log("addVisibleClass: 2sec");
     visible.setAttribute('class', 'visible');
   }
 

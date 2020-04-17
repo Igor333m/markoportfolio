@@ -82,7 +82,9 @@ var ImageGallery = /*#__PURE__*/function () {
 
         _this.setImageNumber(_this.currentImage);
 
-        _this.removeVisibleClass();
+        setTimeout(function () {
+          _this.removeVisibleClass();
+        }, 200);
       }, 200);
     });
 
@@ -103,6 +105,7 @@ var ImageGallery = /*#__PURE__*/function () {
     });
 
     _defineProperty(this, "addVisibleClass", function () {
+      console.log("addVisibleClass: 2sec");
       visible.setAttribute('class', 'visible');
     });
 
