@@ -79,7 +79,10 @@ class ImageGallery {
         this.currentImage = this.totalImages;
       }
       this.setImageNumber(this.currentImage);
-      window.onload(setTimeout(() => {this.removeVisibleClass()}, 100));
+      window.onload(() => {
+        this.addVisibleClass();
+        setTimeout(() => {this.removeVisibleClass()}, 100);
+      });
     }, 100);
   }
 

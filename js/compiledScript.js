@@ -100,9 +100,13 @@ var ImageGallery = /*#__PURE__*/function () {
 
         _this.setImageNumber(_this.currentImage);
 
-        window.onload(setTimeout(function () {
-          _this.removeVisibleClass();
-        }, 100));
+        window.onload(function () {
+          _this.addVisibleClass();
+
+          setTimeout(function () {
+            _this.removeVisibleClass();
+          }, 100);
+        });
       }, 100);
     });
 
