@@ -80,7 +80,8 @@ class ImageGallery {
         this.currentImage = this.totalImages;
       }
       this.setImageNumber(this.currentImage);
-      project.addEventListener('load', setTimeout(() => {this.removeVisibleClass()}, 100));
+      this.addVisibleClass();
+      window.onload(setTimeout(() => {this.removeVisibleClass()}, 100));
     }, 100);
   }
 
