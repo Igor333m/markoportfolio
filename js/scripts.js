@@ -60,21 +60,19 @@ class ImageGallery {
 
   plus = () => {
     this.addVisibleClass();
-    
     setTimeout(() => {
       if ( this.currentImage < this.totalImages ) {
         this.currentImage++;
       } else {
         this.currentImage = 1;
       }
-      project.addEventListener('load', this.removeVisibleClass());
       this.setImageNumber(this.currentImage);
-    }, 1000);
+      this.removeVisibleClass()
+    }, 400);
   }
   
   minus = () => {
     this.addVisibleClass();
-    
     setTimeout(() => {
       if ( this.currentImage !== 1 ) {
         this.currentImage--;
@@ -83,7 +81,7 @@ class ImageGallery {
       }
       project.addEventListener('load', this.removeVisibleClass());
       this.setImageNumber(this.currentImage);
-    }, 50);
+    }, 400);
   }
 
   addVisibleClass = () => {

@@ -73,7 +73,6 @@ var ImageGallery = /*#__PURE__*/function () {
     _defineProperty(this, "plus", function () {
       _this.addVisibleClass();
 
-      project.addEventListener('load', _this.removeVisibleClass());
       setTimeout(function () {
         if (_this.currentImage < _this.totalImages) {
           _this.currentImage++;
@@ -82,13 +81,14 @@ var ImageGallery = /*#__PURE__*/function () {
         }
 
         _this.setImageNumber(_this.currentImage);
-      }, 200);
+
+        _this.removeVisibleClass();
+      }, 400);
     });
 
     _defineProperty(this, "minus", function () {
       _this.addVisibleClass();
 
-      project.addEventListener('load', _this.removeVisibleClass());
       setTimeout(function () {
         if (_this.currentImage !== 1) {
           _this.currentImage--;
@@ -96,8 +96,10 @@ var ImageGallery = /*#__PURE__*/function () {
           _this.currentImage = _this.totalImages;
         }
 
+        project.addEventListener('load', _this.removeVisibleClass());
+
         _this.setImageNumber(_this.currentImage);
-      }, 200);
+      }, 400);
     });
 
     _defineProperty(this, "addVisibleClass", function () {
@@ -105,6 +107,7 @@ var ImageGallery = /*#__PURE__*/function () {
     });
 
     _defineProperty(this, "removeVisibleClass", function () {
+      console.log("removeVisibleClass: 2sec");
       visible.removeAttribute('class', 'visible');
     });
   }
