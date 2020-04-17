@@ -79,8 +79,8 @@ class ImageGallery {
       } else {
         this.currentImage = this.totalImages;
       }
-      project.addEventListener('load', this.removeVisibleClass());
       this.setImageNumber(this.currentImage);
+      project.addEventListener('load', this.removeVisibleClass());
     }, 400);
   }
 

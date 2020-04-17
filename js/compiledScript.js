@@ -96,9 +96,9 @@ var ImageGallery = /*#__PURE__*/function () {
           _this.currentImage = _this.totalImages;
         }
 
-        project.addEventListener('load', _this.removeVisibleClass());
-
         _this.setImageNumber(_this.currentImage);
+
+        project.addEventListener('load', _this.removeVisibleClass());
       }, 400);
     });
 
