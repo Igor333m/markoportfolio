@@ -82,10 +82,8 @@ var ImageGallery = /*#__PURE__*/function () {
 
         _this.setImageNumber(_this.currentImage);
 
-        window.onload(setTimeout(function () {
-          _this.removeVisibleClass();
-        }, 100));
-      }, 100);
+        project.addEventListener('load', _this.removeVisibleClass());
+      }, 200);
     });
 
     _defineProperty(this, "minus", function () {
@@ -100,14 +98,8 @@ var ImageGallery = /*#__PURE__*/function () {
 
         _this.setImageNumber(_this.currentImage);
 
-        window.onload(function () {
-          _this.addVisibleClass();
-
-          setTimeout(function () {
-            _this.removeVisibleClass();
-          }, 100);
-        });
-      }, 100);
+        project.addEventListener('load', _this.removeVisibleClass());
+      }, 200);
     });
 
     _defineProperty(this, "addVisibleClass", function () {

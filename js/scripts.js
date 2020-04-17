@@ -67,7 +67,8 @@ class ImageGallery {
         this.currentImage = 1;
       }
       this.setImageNumber(this.currentImage);
-      window.onload(setTimeout(() => {this.removeVisibleClass()}, 100));    }, 100);
+      project.addEventListener('load', this.removeVisibleClass());
+    }, 200);
   }
   
   minus = () => {
@@ -79,11 +80,8 @@ class ImageGallery {
         this.currentImage = this.totalImages;
       }
       this.setImageNumber(this.currentImage);
-      window.onload(() => {
-        this.addVisibleClass();
-        setTimeout(() => {this.removeVisibleClass()}, 100);
-      });
-    }, 100);
+      project.addEventListener('load', this.removeVisibleClass());
+    }, 200);
   }
 
   addVisibleClass = () => {
