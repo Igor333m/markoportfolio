@@ -73,6 +73,7 @@ var ImageGallery = /*#__PURE__*/function () {
     _defineProperty(this, "plus", function () {
       _this.addVisibleClass();
 
+      project.addEventListener('load', _this.removeVisibleClass);
       setTimeout(function () {
         if (_this.currentImage < _this.totalImages) {
           _this.currentImage++;
@@ -81,14 +82,13 @@ var ImageGallery = /*#__PURE__*/function () {
         }
 
         _this.setImageNumber(_this.currentImage);
-
-        project.addEventListener('load', _this.removeVisibleClass());
       }, 200);
     });
 
     _defineProperty(this, "minus", function () {
       _this.addVisibleClass();
 
+      project.addEventListener('load', _this.removeVisibleClass);
       setTimeout(function () {
         if (_this.currentImage !== 1) {
           _this.currentImage--;
@@ -97,19 +97,15 @@ var ImageGallery = /*#__PURE__*/function () {
         }
 
         _this.setImageNumber(_this.currentImage);
-
-        project.addEventListener('load', _this.removeVisibleClass());
       }, 200);
     });
 
     _defineProperty(this, "addVisibleClass", function () {
-      console.log("addVisibleClass: 2sec");
-      visible.setAttribute('class', 'visible');
+      return visible.setAttribute('class', 'visible');
     });
 
     _defineProperty(this, "removeVisibleClass", function () {
-      console.log("removeVisibleClass: 2sec");
-      visible.removeAttribute('class', 'visible');
+      return visible.removeAttribute('class', 'visible');
     });
   }
 
@@ -145,7 +141,6 @@ imageGallery.img();
 function swipeImages() {
   var pageStart = 0;
   var pageEnd = 0;
-  console.info(screenWidth);
 
   var handleStart = function handleStart(event) {
     var touches = event.changedTouches;
@@ -167,12 +162,10 @@ function swipeImages() {
 
   function swipe(startX, endX) {
     if (startX - endX < 0 && Math.abs(startX - endX) > screenWidth / 8) {
-      console.log("Plus");
       imageGallery.plus();
     }
 
     if (startX - endX > 0 && Math.abs(startX - endX) > screenWidth / 8) {
-      console.log("Minus");
       imageGallery.minus();
     }
   }

@@ -60,6 +60,7 @@ class ImageGallery {
 
   plus = () => {
     this.addVisibleClass();
+    project.addEventListener('load', this.removeVisibleClass);
     setTimeout(() => {
       if ( this.currentImage < this.totalImages ) {
         this.currentImage++;
@@ -67,12 +68,12 @@ class ImageGallery {
         this.currentImage = 1;
       }
       this.setImageNumber(this.currentImage);
-      project.addEventListener('load', this.removeVisibleClass());
     }, 200);
   }
   
   minus = () => {
     this.addVisibleClass();
+    project.addEventListener('load', this.removeVisibleClass);
     setTimeout(() => {
       if ( this.currentImage !== 1 ) {
         this.currentImage--;
@@ -80,18 +81,15 @@ class ImageGallery {
         this.currentImage = this.totalImages;
       }
       this.setImageNumber(this.currentImage);
-      project.addEventListener('load', this.removeVisibleClass());
     }, 200);
   }
 
   addVisibleClass = () => {
-    console.log("addVisibleClass: 2sec");
-    visible.setAttribute('class', 'visible');
+    return visible.setAttribute('class', 'visible');
   }
 
   removeVisibleClass = () => {
-    console.log("removeVisibleClass: 2sec");
-    visible.removeAttribute('class', 'visible');
+    return visible.removeAttribute('class', 'visible');
   }
 
   getImgNumberFromProject (projectName, listOfProjects) {
@@ -119,7 +117,6 @@ imageGallery.img();
 function swipeImages () {
   let pageStart = 0;
   let pageEnd = 0;
-  console.info(screenWidth);
 
   const handleStart = (event) => {
     let touches = event.changedTouches;
@@ -138,11 +135,9 @@ function swipeImages () {
 
   function swipe (startX, endX) {
     if (startX - endX < 0 && Math.abs(startX - endX) > screenWidth / 8) {
-      console.log("Plus");
       imageGallery.plus();
     }
     if (startX - endX > 0 && Math.abs(startX - endX) > screenWidth / 8) {
-      console.log("Minus");
       imageGallery.minus();
     }
   }
