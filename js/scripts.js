@@ -68,7 +68,7 @@ class ImageGallery {
       }
       this.setImageNumber(this.currentImage);
       setTimeout(() => {
-        this.removeVisibleClass()
+        project.addEventListener('load', this.removeVisibleClass());
       }, 200);
     }, 200);
   }
